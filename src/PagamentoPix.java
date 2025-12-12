@@ -1,26 +1,28 @@
+/*aqui criamos uma classe e utilizamos um implements de Pagamento, onde pegamos a interface
+* de Pagamento para PagamentoPix*/
 public class PagamentoPix implements Pagamento{
-
+/*Criamos uma instancia de LeituraDeTexto para chamar a classe Scanner*/
     LeituraDeTexto scanner = new LeituraDeTexto();
+    /*Criamos 2 atributos private, para deixar protegido esses atributos*/
     private double valor;
     private double saldo;
+/*Como na interface não podemos criar um construtor, nós podemos criar dentro da prórpia classe*/
 
-    public PagamentoPix(double valor){
-        this.valor = valor;
-    }
 
     @Override
     public void efetuarPagamento(){
-        System.out.println("Escaneie o QRcode");
-        System.out.println("Valor R$ = "+getValor());
-        System.out.print("Digite seu saldo: ");
+        escanearQrCode();
+        valor();
+        this.valor = scanner.lerDouble();
+        digiteSeuSaldo();
         this.saldo = scanner.lerDouble();
-        System.out.println("Saldo R$ = "+ getSaldo());
         if(getSaldo() < getValor()){
             System.out.println("Saldo insuficiente !");
         } else{
             confirmarPagamento();
         }
     }
+    /*Temos a criação dos getters e setters dos nossos atributos private*/
     public double getValor(){
         return valor;
     }

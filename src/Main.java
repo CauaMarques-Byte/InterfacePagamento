@@ -7,9 +7,9 @@ public class Main {
         System.out.println("Digite a opção de 1 a 3");
         int opcao = sc.nextInt();
 
-        PagamentoPix pix = new PagamentoPix(200.00);
-        PagamentoBoleto boleto = new PagamentoBoleto(2000.00);
-        PagamentoCartao cartao = new PagamentoCartao(300.00);
+        PagamentoPix pix = new PagamentoPix();
+        PagamentoBoleto boleto = new PagamentoBoleto();
+        PagamentoCartao cartao = new PagamentoCartao();
 
         switch (opcao){
             case 1:
