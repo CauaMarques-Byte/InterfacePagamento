@@ -12,9 +12,9 @@ public class PagamentoPix implements Pagamento{
     @Override
     public void efetuarPagamento(){
         escanearQrCode();
-        valor();
+        mensagem("Digite seu valor: ");
         this.valor = scanner.lerDouble();
-        digiteSeuSaldo();
+        mensagem("Digite seu saldo: ");
         this.saldo = scanner.lerDouble();
         if(getSaldo() < getValor()){
             System.out.println("Saldo insuficiente !");
