@@ -30,6 +30,10 @@ public interface Pagamento {
         System.out.println("Em quantas parcelas ? ");
     }
 
+    default void mensagem(String mensagem){
+        System.out.println(mensagem);
+    }
+
     /*Não podemos inicializar um construtor dentro da interface, pois não tem como
     * criar um contrato com um construtor, pois ele é um inicializador*/
 }
