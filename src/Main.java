@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main{
     public static void main(String[] args) {
         SistemaBancario sistema = new SistemaBancario();
         Scanner sc = new Scanner(System.in);
@@ -13,13 +13,13 @@ public class Main {
 
         switch (opcao){
             case 1:
-                sistema.processarPagamento(pix);
+                System.out.println(sistema.processarPagamento(pix));
                 break;
             case 2:
-                sistema.processarPagamento(boleto);
+                System.out.println(sistema.processarPagamento(boleto));
                 break;
             case 3:
-                sistema.processarPagamento(cartao);
+                System.out.println(sistema.processarPagamento(cartao));
                 break;
                 default:
                     System.out.println("Numero incorreto");

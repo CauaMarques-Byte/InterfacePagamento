@@ -8,20 +8,20 @@ public class PagamentoPix implements Pagamento{
     private double saldo;
 /*Como na interface não podemos criar um construtor, nós podemos criar dentro da prórpia classe*/
 
-
     @Override
-    public void efetuarPagamento(){
-        escanearQrCode();
-        valor();
+    public String efetuarPagamento(){
+        mensagem("Escaneie o Qrcode");
+        mensagem("Valor da compra R$ = ");
         this.valor = scanner.lerDouble();
-        digiteSeuSaldo();
+        mensagem("Digite seu saldo R$ = ");
         this.saldo = scanner.lerDouble();
         if(getSaldo() < getValor()){
-            System.out.println("Saldo insuficiente !");
+            return "Saldo insuficiente";
         } else{
-            confirmarPagamento();
+            return confirmarPagamento();
         }
     }
+
     /*Temos a criação dos getters e setters dos nossos atributos private*/
     public double getValor(){
         return valor;

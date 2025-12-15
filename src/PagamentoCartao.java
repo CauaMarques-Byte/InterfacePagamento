@@ -8,16 +8,16 @@ public class PagamentoCartao implements Pagamento {
     LeituraDeTexto scanner = new  LeituraDeTexto();
 
     @Override
-    public void efetuarPagamento(){
-        aproximarCartao();
-        valor();
+    public String efetuarPagamento(){
+        mensagem("Insira ou aporxime o cartão");
+        mensagem("Digite o valor R$ = ");
         this.valor = scanner.lerDouble();
-        digiteSeuSaldo();
+        mensagem("Digite seu saldo R$ = ");
         this.saldo = scanner.lerDouble();
         if(getSaldo() < getValor()){
-            System.out.println("Saldo insuficiente !");
+            return "Saldo insuficiente";
         } else{
-            confirmarPagamento();
+            return confirmarPagamento();
         }
     }
 
@@ -25,7 +25,7 @@ public class PagamentoCartao implements Pagamento {
         return valor;
     }
 
-    public double getSaldo(){
+    public double getSaldo() {
         return saldo;
     }
 }

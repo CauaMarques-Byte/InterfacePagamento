@@ -7,17 +7,16 @@ public class PagamentoBoleto implements Pagamento{
     private int parcelas;
 
     @Override
-    public void efetuarPagamento(){
-        valor();
+    public String efetuarPagamento(){
+        mensagem("Valor da compra R$ = ");
         this.valor = leitura.lerDouble();
-        parcelas();
+        mensagem("Em quantas parcelas ? ");
         this.parcelas = leitura.lerinteiro();
-        if(getParcelas() <= 5 && getParcelas() <= 24){
-            System.out.println("Juros de 5% no boleto");
+        if(getParcelas() <= 6 && getParcelas() <= 24){
+            return "Juros de 5% no boleto";
         } else {
-            System.out.println("Juros de 13% no boleto");
+            return "Juros de 13% no boleto";
         }
-        confirmarPagamento();
     }
 
     public double getValor(){
